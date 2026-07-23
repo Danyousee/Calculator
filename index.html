@@ -1764,11 +1764,12 @@
         </section>
 
         <section class="results-grid">
-            <div class="result-card"><small><i class="fa-solid fa-expand"></i> Position Size</small><h2 id="position">0.00</h2></div>
-            <div class="result-card red"><small><i class="fa-solid fa-triangle-exclamation"></i> Risk</small><h2 id="riskAmount">0.00</h2></div>
-            <div class="result-card"><small><i class="fa-solid fa-gift"></i> Reward</small><h2 id="reward">0.00</h2></div>
+            <div class="result-card"><small><i class="fa-solid fa-expand"></i> Position Size</small><h2 id="position">0.00 USDT</h2></div>
+            <div class="result-card"><small><i class="fa-solid fa-hashtag"></i> Quantity</small><h2 id="quantity">0.0000</h2></div>
+            <div class="result-card red"><small><i class="fa-solid fa-triangle-exclamation"></i> Risk</small><h2 id="riskAmount">0.00 USDT</h2></div>
+            <div class="result-card"><small><i class="fa-solid fa-gift"></i> Reward</small><h2 id="reward">0.00 USDT</h2></div>
             <div class="result-card"><small><i class="fa-solid fa-scale-balanced"></i> R:R Ratio</small><h2 id="rr">0 : 0</h2></div>
-            <div class="result-card"><small><i class="fa-solid fa-receipt"></i> Fee Impact</small><h2 id="feeCost">0.00</h2></div>
+            <div class="result-card"><small><i class="fa-solid fa-receipt"></i> Fee Impact</small><h2 id="feeCost">0.00 USDT</h2></div>
             <div class="result-card"><small><i class="fa-solid fa-skull"></i> Liquidation</small><h2 id="liq">--</h2></div>
             <div class="result-card"><small><i class="fa-solid fa-arrow-trend-up"></i> Breakeven</small><h2 id="breakeven">--</h2></div>
             <div class="result-card" id="statusCard"><small><i class="fa-solid fa-shield-halved"></i> Risk Status</small><h2 id="status">Safe</h2></div>
@@ -2343,6 +2344,7 @@
 
         const margin = safeGet("margin");
         const position = safeGet("position");
+        const quantity = safeGet("quantity");
         const riskAmount = safeGet("riskAmount");
         const reward = safeGet("reward");
         const rr = safeGet("rr");
@@ -2403,12 +2405,13 @@
             const riskPercent = parseFloat(slider.value);
 
             if (isNaN(bal) || isNaN(ep) || isNaN(sl)) {
-                if (position) position.textContent = "0.00";
-                if (riskAmount) riskAmount.textContent = "0.00";
-                if (reward) reward.textContent = "0.00";
+                if (position) position.textContent = "0.00 USDT";
+                if (quantity) quantity.textContent = "0.0000";
+                if (riskAmount) riskAmount.textContent = "0.00 USDT";
+                if (reward) reward.textContent = "0.00 USDT";
                 if (rr) rr.textContent = "0 : 0";
                 if (margin) margin.textContent = "0.00 USDT";
-                if (feeCost) feeCost.textContent = "0.00";
+                if (feeCost) feeCost.textContent = "0.00 USDT";
                 if (liq) liq.textContent = "--";
                 if (breakeven) breakeven.textContent = "--";
                 if (status) status.textContent = "Safe";
@@ -2422,6 +2425,9 @@
 
             const positionSize = riskUSDT / (stopDistance / ep);
             const marginRequired = positionSize / lev;
+            
+            // Calculate Quantity (positionSize / entryPrice)
+            const quantityValue = positionSize / ep;
 
             let rewardUSDT = 0;
             if (!isNaN(tp)) {
@@ -2465,6 +2471,7 @@
             }
 
             if (position) position.textContent = positionSize.toFixed(2) + " USDT";
+            if (quantity) quantity.textContent = quantityValue.toFixed(4);
             if (riskAmount) riskAmount.textContent = riskUSDT.toFixed(2) + " USDT";
             if (reward) reward.textContent = rewardUSDT.toFixed(2) + " USDT";
             if (rr) rr.textContent = rrRatio;
@@ -2487,9 +2494,10 @@
         if (copyBtn) {
             copyBtn.onclick = () => {
                 const text =
-                    `Position Size: ${position ? position.textContent : '0.00'}\n` +
-                    `Risk: ${riskAmount ? riskAmount.textContent : '0.00'}\n` +
-                    `Reward: ${reward ? reward.textContent : '0.00'}\n` +
+                    `Position Size: ${position ? position.textContent : '0.00 USDT'}\n` +
+                    `Quantity: ${quantity ? quantity.textContent : '0.0000'}\n` +
+                    `Risk: ${riskAmount ? riskAmount.textContent : '0.00 USDT'}\n` +
+                    `Reward: ${reward ? reward.textContent : '0.00 USDT'}\n` +
                     `RR: ${rr ? rr.textContent : '0 : 0'}\n` +
                     `Liquidation: ${liq ? liq.textContent : '--'}\n` +
                     `Breakeven: ${breakeven ? breakeven.textContent : '--'}\n` +
@@ -3448,12 +3456,13 @@
                 if (leverage) leverage.selectedIndex = 5;
                 if (fee) fee.selectedIndex = 1;
                 if (marginMode) marginMode.selectedIndex = 1;
-                if (position) position.textContent = "0.00";
-                if (riskAmount) riskAmount.textContent = "0.00";
-                if (reward) reward.textContent = "0.00";
+                if (position) position.textContent = "0.00 USDT";
+                if (quantity) quantity.textContent = "0.0000";
+                if (riskAmount) riskAmount.textContent = "0.00 USDT";
+                if (reward) reward.textContent = "0.00 USDT";
                 if (rr) rr.textContent = "0 : 0";
                 if (margin) margin.textContent = "0.00 USDT";
-                if (feeCost) feeCost.textContent = "0.00";
+                if (feeCost) feeCost.textContent = "0.00 USDT";
                 if (liq) liq.textContent = "--";
                 if (breakeven) breakeven.textContent = "--";
                 if (status) status.textContent = "Safe";
