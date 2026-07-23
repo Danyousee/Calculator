@@ -870,60 +870,241 @@
         .journal-entry .entry-pnl.positive { color: #22a65e; }
         .journal-entry .entry-pnl.negative { color: #ff3b4a; }
         /* ===========================
-           JOURNAL FORM
+           JOURNAL FORM - MODERN
         ============================ */
-        .journal-form {
-            background: #f8faff;
-            border-radius: 16px;
-            padding: 16px;
+        .modern-journal-card {
+            background: linear-gradient(145deg, #ffffff, #f8faff);
+            border-radius: 24px;
+            padding: 20px;
             margin-bottom: 16px;
+            border: 1px solid rgba(21, 101, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(21, 101, 255, 0.06);
+            transition: all 0.3s ease;
         }
-        .journal-form .form-row {
-            margin-bottom: 12px;
+        body.dark-mode .modern-journal-card {
+            background: linear-gradient(145deg, #1a2a3a, #15202e);
+            border-color: rgba(21, 101, 255, 0.15);
         }
-        .journal-form .form-row label {
+        .modern-journal-card .form-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid rgba(21, 101, 255, 0.08);
+        }
+        .modern-journal-card .form-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1d3557;
+        }
+        .modern-journal-card .form-header h3 i {
+            color: #1565ff;
+            background: rgba(21, 101, 255, 0.1);
+            padding: 8px;
+            border-radius: 12px;
+            font-size: 16px;
+        }
+        body.dark-mode .modern-journal-card .form-header h3 {
+            color: #e0e0e0;
+        }
+        .modern-journal-card .form-header .form-badge {
+            font-size: 11px;
+            font-weight: 600;
+            background: rgba(21, 101, 255, 0.08);
+            color: #1565ff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+        body.dark-mode .modern-journal-card .form-header .form-badge {
+            background: rgba(21, 101, 255, 0.15);
+            color: #6b9fff;
+        }
+        .modern-journal-card .form-row {
+            margin-bottom: 14px;
+        }
+        .modern-journal-card .form-row label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5a6a;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .modern-journal-card .form-row label i {
+            color: #1565ff;
             font-size: 14px;
-            margin-bottom: 4px;
+            width: 18px;
         }
-        .journal-form .form-row input,
-        .journal-form .form-row select,
-        .journal-form .form-row textarea {
-            height: 42px;
+        body.dark-mode .modern-journal-card .form-row label {
+            color: #a0b0c0;
+        }
+        .modern-journal-card .form-row input,
+        .modern-journal-card .form-row select,
+        .modern-journal-card .form-row textarea {
+            height: 44px;
+            border-radius: 14px;
+            border: 2px solid #e8edf5;
+            padding: 10px 14px;
             font-size: 15px;
-            padding: 8px 12px;
+            background: #ffffff;
+            transition: all 0.25s ease;
+            width: 100%;
+            font-family: inherit;
         }
-        .journal-form .form-row textarea {
-            height: 60px;
+        body.dark-mode .modern-journal-card .form-row input,
+        body.dark-mode .modern-journal-card .form-row select,
+        body.dark-mode .modern-journal-card .form-row textarea {
+            background: #2a3a4a;
+            border-color: #3a4a5a;
+            color: #e0e0e0;
         }
-        .journal-form .form-actions {
+        .modern-journal-card .form-row input:focus,
+        .modern-journal-card .form-row select:focus,
+        .modern-journal-card .form-row textarea:focus {
+            border-color: #1565ff;
+            box-shadow: 0 0 0 4px rgba(21, 101, 255, 0.08);
+            outline: none;
+        }
+        .modern-journal-card .form-row textarea {
+            height: 56px;
+            resize: vertical;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .modern-journal-card .form-actions {
             display: flex;
             gap: 10px;
+            margin-top: 18px;
         }
-        .journal-form .form-actions button {
+        .modern-journal-card .form-actions button {
             flex: 1;
-            height: 44px;
+            height: 48px;
             border: none;
             border-radius: 14px;
             font-size: 15px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-        .journal-form .form-actions button:active {
+        .modern-journal-card .form-actions button:active {
             transform: scale(0.96);
         }
-        .star-rating {
+        .modern-journal-card .form-actions .btn-add {
+            background: linear-gradient(135deg, #1565ff, #0d4fd0);
+            color: white;
+            box-shadow: 0 4px 16px rgba(21, 101, 255, 0.3);
+        }
+        .modern-journal-card .form-actions .btn-add:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(21, 101, 255, 0.4);
+        }
+        .modern-journal-card .form-actions .btn-add i {
+            color: white;
+        }
+        .modern-journal-card .form-actions .btn-clear {
+            background: #fff0f0;
+            color: #ff3b4a;
+            border: 2px solid #ffebee;
+        }
+        .modern-journal-card .form-actions .btn-clear:hover {
+            background: #ffe0e0;
+            border-color: #ffcdd2;
+        }
+        body.dark-mode .modern-journal-card .form-actions .btn-clear {
+            background: #2a1a1a;
+            border-color: #3a2a2a;
+            color: #ff6b7a;
+        }
+        body.dark-mode .modern-journal-card .form-actions .btn-clear:hover {
+            background: #3a2a2a;
+        }
+        .modern-journal-card .star-rating {
             display: flex;
-            gap: 4px;
+            gap: 6px;
+            padding: 4px 0;
         }
-        .star-rating .star {
-            font-size: 24px;
+        .modern-journal-card .star-rating .star {
+            font-size: 26px;
             cursor: pointer;
-            color: #ddd;
-            transition: 0.2s;
+            color: #dce0e8;
+            transition: all 0.2s ease;
         }
-        .star-rating .star.active {
+        .modern-journal-card .star-rating .star:hover {
+            transform: scale(1.15);
+        }
+        .modern-journal-card .star-rating .star.active {
             color: #f9a825;
+        }
+        body.dark-mode .modern-journal-card .star-rating .star {
+            color: #4a5a6a;
+        }
+        .modern-journal-card .input-group-icon {
+            position: relative;
+        }
+        .modern-journal-card .input-group-icon input,
+        .modern-journal-card .input-group-icon select {
+            padding-left: 40px;
+        }
+        .modern-journal-card .input-group-icon .icon-left {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6b7b93;
+            font-size: 16px;
+        }
+        .modern-journal-card .form-row .hint-text {
+            font-size: 11px;
+            color: #6b7b93;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+        body.dark-mode .modern-journal-card .form-row .hint-text {
+            color: #8a9aaa;
+        }
+        .modern-journal-card .form-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(21, 101, 255, 0.1), transparent);
+            margin: 16px 0;
+        }
+        body.dark-mode .modern-journal-card .form-divider {
+            background: linear-gradient(to right, transparent, rgba(21, 101, 255, 0.2), transparent);
+        }
+        @media(max-width:480px) {
+            .modern-journal-card {
+                padding: 16px;
+                border-radius: 20px;
+            }
+            .modern-journal-card .form-header h3 {
+                font-size: 16px;
+            }
+            .modern-journal-card .form-row input,
+            .modern-journal-card .form-row select,
+            .modern-journal-card .form-row textarea {
+                height: 40px;
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+            .modern-journal-card .form-row textarea {
+                height: 48px;
+            }
+            .modern-journal-card .form-actions button {
+                height: 44px;
+                font-size: 14px;
+            }
+            .modern-journal-card .star-rating .star {
+                font-size: 22px;
+            }
         }
         /* ===========================
            SEARCH & FILTERS
@@ -1370,8 +1551,6 @@
             .stats-grid .journal-stat .stat-value { font-size: 18px; }
             .stats-grid .journal-stat .stat-label { font-size: 9px; }
             .journal-entry .entry-details { grid-template-columns: 1fr 1fr; font-size: 13px; }
-            .journal-form .form-row input, .journal-form .form-row select, .journal-form .form-row textarea { height: 38px; font-size: 15px; }
-            .journal-form .form-row textarea { height: 50px; }
             .floating-add { width: 52px; height: 52px; font-size: 24px; bottom: 16px; right: 16px; }
             .stats-scroll .stat-mini { padding: 6px 12px; min-width: 70px; }
             .stats-scroll .stat-mini .mini-value { font-size: 14px; }
@@ -1387,6 +1566,7 @@
             .modal { padding: 20px; }
             .modal h2 { font-size: 18px; }
             .view-toggle .view-btn { font-size: 13px; padding: 8px 12px; }
+            .modern-journal-card .form-row .two-column { grid-template-columns: 1fr; gap: 8px; }
         }
         @media(max-width:380px) {
             .two-column { grid-template-columns: 1fr 1fr; gap: 6px; }
@@ -1667,63 +1847,186 @@
                 </div>
             </div>
 
-            <!-- Add Entry Form -->
-            <div class="card" id="journalFormCard">
-                <h3 style="margin-bottom:12px;font-size:17px;"><i class="fa-solid fa-plus-circle" style="color:#1565ff;"></i> Add Trade Entry</h3>
-                <div class="journal-form">
-                    <div class="form-row two-column">
-                        <div><label>Pair / Asset</label><input id="journalPair" type="text" placeholder="e.g., BTC/USDT" value="BTC/USDT"></div>
-                        <div><label>Exchange</label>
-                            <select id="journalExchange"><option value="Binance">Binance</option><option value="Bybit">Bybit</option><option value="OKX">OKX</option><option value="Kucoin">Kucoin</option><option value="Other">Other</option></select>
-                        </div>
+            <!-- MODERN ADD TRADE ENTRY FORM -->
+            <div class="modern-journal-card" id="journalFormCard">
+                <div class="form-header">
+                    <h3><i class="fa-solid fa-plus-circle"></i> Add Trade Entry</h3>
+                    <span class="form-badge"><i class="fa-regular fa-clock"></i> New</span>
+                </div>
+                
+                <div class="form-row two-column">
+                    <div>
+                        <label><i class="fa-solid fa-coins"></i> Pair / Asset</label>
+                        <input id="journalPair" type="text" placeholder="e.g., BTC/USDT" value="BTC/USDT">
                     </div>
-                    <div class="form-row two-column">
-                        <div><label><i class="fa-solid fa-arrow-up"></i> Entry Price</label><input id="journalEntryPrice" type="number" inputmode="decimal" step="any" placeholder="0.00"></div>
-                        <div><label><i class="fa-solid fa-arrow-down"></i> Exit Price</label><input id="journalExitPrice" type="number" inputmode="decimal" step="any" placeholder="0.00"></div>
+                    <div>
+                        <label><i class="fa-solid fa-building"></i> Exchange</label>
+                        <select id="journalExchange">
+                            <option value="Binance">Binance</option>
+                            <option value="Bybit">Bybit</option>
+                            <option value="OKX">OKX</option>
+                            <option value="Kucoin">Kucoin</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
-                    <div class="form-row two-column">
-                        <div><label>Position Size (USDT)</label><input id="journalSize" type="number" inputmode="decimal" step="any" placeholder="0.00"></div>
-                        <div><label>Direction</label><select id="journalDirection"><option value="Long">Long</option><option value="Short">Short</option></select></div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-row two-column">
+                    <div>
+                        <label><i class="fa-solid fa-arrow-up"></i> Entry Price</label>
+                        <input id="journalEntryPrice" type="number" inputmode="decimal" step="any" placeholder="0.00">
                     </div>
-                    <div class="form-row two-column">
-                        <div><label><i class="fa-solid fa-chess-queen"></i> Strategy</label><input id="journalStrategy" type="text" placeholder="e.g., Trend Following"></div>
-                        <div><label><i class="fa-solid fa-clock"></i> Timeframe</label>
-                            <select id="journalTimeframe"><option value="1m">1m</option><option value="5m">5m</option><option value="15m">15m</option><option value="30m">30m</option><option value="1h">1h</option><option value="4h">4h</option><option value="1d">1d</option><option value="1w">1w</option></select>
-                        </div>
+                    <div>
+                        <label><i class="fa-solid fa-arrow-down"></i> Exit Price</label>
+                        <input id="journalExitPrice" type="number" inputmode="decimal" step="any" placeholder="0.00">
                     </div>
-                    <div class="form-row two-column">
-                        <div><label><i class="fa-solid fa-right-left"></i> Leverage</label><input id="journalLeverage" type="number" placeholder="1" value="1"></div>
-                        <div><label><i class="fa-solid fa-percent"></i> Trading Fee</label><input id="journalTradingFee" type="number" step="0.01" placeholder="0.10" value="0.10"></div>
+                </div>
+
+                <div class="form-row two-column">
+                    <div>
+                        <label><i class="fa-solid fa-weight-scale"></i> Position Size (USDT)</label>
+                        <input id="journalSize" type="number" inputmode="decimal" step="any" placeholder="0.00">
                     </div>
-                    <div class="form-row two-column">
-                        <div><label><i class="fa-solid fa-gauge-high"></i> Confidence</label><select id="journalConfidence"><option value="Low">Low</option><option value="Medium" selected>Medium</option><option value="High">High</option></select></div>
-                        <div><label><i class="fa-solid fa-star"></i> Setup Quality</label><select id="journalSetupQuality"><option value="Poor">Poor</option><option value="Good" selected>Good</option><option value="Excellent">Excellent</option></select></div>
+                    <div>
+                        <label><i class="fa-solid fa-arrow-right-arrow-left"></i> Direction</label>
+                        <select id="journalDirection">
+                            <option value="Long">Long</option>
+                            <option value="Short">Short</option>
+                        </select>
                     </div>
-                    <div class="form-row two-column">
-                        <div><label><i class="fa-regular fa-face-smile"></i> Emotion Before</label><select id="journalEmotionBefore"><option value="Calm">Calm</option><option value="Confident">Confident</option><option value="Anxious">Anxious</option><option value="Excited">Excited</option><option value="Fearful">Fearful</option><option value="Greedy">Greedy</option></select></div>
-                        <div><label><i class="fa-regular fa-face-smile"></i> Emotion After</label><select id="journalEmotionAfter"><option value="Calm">Calm</option><option value="Confident">Confident</option><option value="Relieved">Relieved</option><option value="Frustrated">Frustrated</option><option value="Regretful">Regretful</option><option value="Satisfied">Satisfied</option></select></div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-row two-column">
+                    <div>
+                        <label><i class="fa-solid fa-chess-queen"></i> Strategy</label>
+                        <input id="journalStrategy" type="text" placeholder="e.g., Trend Following">
                     </div>
-                    <div class="form-row">
-                        <label><i class="fa-solid fa-star"></i> Trade Rating</label>
-                        <div class="star-rating" id="starRating">
-                            <span class="star" data-value="1"><i class="fa-solid fa-star"></i></span>
-                            <span class="star" data-value="2"><i class="fa-solid fa-star"></i></span>
-                            <span class="star" data-value="3"><i class="fa-solid fa-star"></i></span>
-                            <span class="star" data-value="4"><i class="fa-solid fa-star"></i></span>
-                            <span class="star" data-value="5"><i class="fa-solid fa-star"></i></span>
-                        </div>
-                        <input type="hidden" id="journalRating" value="3">
+                    <div>
+                        <label><i class="fa-solid fa-clock"></i> Timeframe</label>
+                        <select id="journalTimeframe">
+                            <option value="1m">1m</option>
+                            <option value="5m">5m</option>
+                            <option value="15m">15m</option>
+                            <option value="30m">30m</option>
+                            <option value="1h">1h</option>
+                            <option value="4h">4h</option>
+                            <option value="1d">1d</option>
+                            <option value="1w">1w</option>
+                        </select>
                     </div>
-                    <div class="form-row"><label><i class="fa-solid fa-tags"></i> Tags</label><input id="journalTags" type="text" placeholder="e.g., breakout, reversal, momentum"></div>
-                    <div class="form-row"><label><i class="fa-solid fa-arrow-right-to-bracket"></i> Entry Reason</label><textarea id="journalEntryReason" placeholder="Why did you enter this trade?"></textarea></div>
-                    <div class="form-row"><label><i class="fa-solid fa-arrow-right-from-bracket"></i> Exit Reason</label><textarea id="journalExitReason" placeholder="Why did you exit this trade?"></textarea></div>
-                    <div class="form-row"><label><i class="fa-solid fa-bug"></i> Mistakes Made</label><textarea id="journalMistakes" placeholder="What went wrong?"></textarea></div>
-                    <div class="form-row"><label><i class="fa-solid fa-graduation-cap"></i> Lessons Learned</label><textarea id="journalLessons" placeholder="What did you learn?"></textarea></div>
-                    <div class="form-row"><label><i class="fa-regular fa-note-sticky"></i> Notes</label><textarea id="journalNotes" placeholder="Additional notes..."></textarea></div>
-                    <div class="form-actions">
-                        <button id="addJournalEntry" class="primary"><i class="fa-solid fa-plus"></i> Add Entry</button>
-                        <button id="clearJournal" class="danger-btn"><i class="fa-solid fa-trash"></i> Clear All</button>
+                </div>
+
+                <div class="form-row two-column">
+                    <div>
+                        <label><i class="fa-solid fa-right-left"></i> Leverage</label>
+                        <input id="journalLeverage" type="number" placeholder="1" value="1">
                     </div>
+                    <div>
+                        <label><i class="fa-solid fa-percent"></i> Trading Fee</label>
+                        <input id="journalTradingFee" type="number" step="0.01" placeholder="0.10" value="0.10">
+                    </div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-row two-column">
+                    <div>
+                        <label><i class="fa-solid fa-gauge-high"></i> Confidence</label>
+                        <select id="journalConfidence">
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label><i class="fa-solid fa-star"></i> Setup Quality</label>
+                        <select id="journalSetupQuality">
+                            <option value="Poor">Poor</option>
+                            <option value="Good" selected>Good</option>
+                            <option value="Excellent">Excellent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row two-column">
+                    <div>
+                        <label><i class="fa-regular fa-face-smile"></i> Emotion Before</label>
+                        <select id="journalEmotionBefore">
+                            <option value="Calm">Calm</option>
+                            <option value="Confident">Confident</option>
+                            <option value="Anxious">Anxious</option>
+                            <option value="Excited">Excited</option>
+                            <option value="Fearful">Fearful</option>
+                            <option value="Greedy">Greedy</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label><i class="fa-regular fa-face-smile"></i> Emotion After</label>
+                        <select id="journalEmotionAfter">
+                            <option value="Calm">Calm</option>
+                            <option value="Confident">Confident</option>
+                            <option value="Relieved">Relieved</option>
+                            <option value="Frustrated">Frustrated</option>
+                            <option value="Regretful">Regretful</option>
+                            <option value="Satisfied">Satisfied</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-row">
+                    <label><i class="fa-solid fa-star"></i> Trade Rating</label>
+                    <div class="star-rating" id="starRating">
+                        <span class="star" data-value="1"><i class="fa-solid fa-star"></i></span>
+                        <span class="star" data-value="2"><i class="fa-solid fa-star"></i></span>
+                        <span class="star" data-value="3"><i class="fa-solid fa-star"></i></span>
+                        <span class="star" data-value="4"><i class="fa-solid fa-star"></i></span>
+                        <span class="star" data-value="5"><i class="fa-solid fa-star"></i></span>
+                    </div>
+                    <input type="hidden" id="journalRating" value="3">
+                    <div class="hint-text">Click on a star to rate this trade</div>
+                </div>
+
+                <div class="form-row">
+                    <label><i class="fa-solid fa-tags"></i> Tags</label>
+                    <input id="journalTags" type="text" placeholder="e.g., breakout, reversal, momentum">
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-row">
+                    <label><i class="fa-solid fa-arrow-right-to-bracket"></i> Entry Reason</label>
+                    <textarea id="journalEntryReason" placeholder="Why did you enter this trade?" style="height:48px;"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label><i class="fa-solid fa-arrow-right-from-bracket"></i> Exit Reason</label>
+                    <textarea id="journalExitReason" placeholder="Why did you exit this trade?" style="height:48px;"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label><i class="fa-solid fa-bug"></i> Mistakes Made</label>
+                    <textarea id="journalMistakes" placeholder="What went wrong?" style="height:48px;"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label><i class="fa-solid fa-graduation-cap"></i> Lessons Learned</label>
+                    <textarea id="journalLessons" placeholder="What did you learn?" style="height:48px;"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label><i class="fa-regular fa-note-sticky"></i> Notes</label>
+                    <textarea id="journalNotes" placeholder="Additional notes..." style="height:48px;"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button id="addJournalEntry" class="btn-add"><i class="fa-solid fa-plus"></i> Add Entry</button>
+                    <button id="clearJournal" class="btn-clear"><i class="fa-solid fa-trash"></i> Clear All</button>
                 </div>
             </div>
 
@@ -1750,7 +2053,7 @@
         </div>
 
         <!-- =========================== -->
-        <!-- REPORT CONTENT (All Features Restored) -->
+        <!-- REPORT CONTENT -->
         <!-- =========================== -->
         <div class="report-content" id="reportContent" style="display:none;">
 
@@ -1872,7 +2175,7 @@
                 </div>
             </div>
 
-            <!-- MODERN ACTION BUTTONS (Replaces old btn-grid) -->
+            <!-- MODERN ACTION BUTTONS -->
             <div class="card" style="margin-bottom:10px;">
                 <div class="report-actions-modern">
                     <button class="action-btn primary-pdf" id="generateReportBtn"><i class="fa-solid fa-file-pdf"></i> Generate PDF</button>
