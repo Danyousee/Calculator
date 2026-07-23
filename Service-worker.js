@@ -3,16 +3,16 @@
 // ============================================
 
 const CACHE_NAME = 'risk-calc-v3';
-const OFFLINE_URL = '/offline.html';
+const OFFLINE_URL = '/Calculator/offline.html';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/offline.html',
-  '/manifest.json',
-  '/launchericon-192x192.png',
-  '/launchericon-512x512.png',
+  '/Calculator/',
+  '/Calculator/index.html',
+  '/Calculator/offline.html',
+  '/Calculator/manifest.json',
+  '/Calculator/launchericon-192x192.png',
+  '/Calculator/launchericon-512x512.png',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'
@@ -196,18 +196,18 @@ self.addEventListener('push', (event) => {
       data = {
         title: 'Risk Calculator',
         body: event.data.text() || 'Update available',
-        icon: '/launchericon-192x192.png'
+        icon: '/Calculator/launchericon-192x192.png'
       };
     }
   }
   
   const options = {
     body: data.body || 'Check your trading journal for updates',
-    icon: data.icon || '/launchericon-192x192.png',
-    badge: '/launchericon-192x192.png',
+    icon: data.icon || '/Calculator/launchericon-192x192.png',
+    badge: '/Calculator/launchericon-192x192.png',
     vibrate: [200, 100, 200],
     data: {
-      url: data.url || '/'
+      url: data.url || '/Calculator/'
     },
     actions: [
       {
@@ -245,7 +245,7 @@ self.addEventListener('notificationclick', (event) => {
       includeUncontrolled: true
     })
     .then((clientList) => {
-      const url = notification.data?.url || '/';
+      const url = notification.data?.url || '/Calculator/';
       // Check if there's already a window/tab open with the target URL
       for (const client of clientList) {
         if (client.url === url && 'focus' in client) {
@@ -315,11 +315,6 @@ async function syncJournalData() {
       });
     }
     
-    // In a real implementation, you would:
-    // 1. Get data from IndexedDB or localStorage
-    // 2. Send it to your server
-    // 3. Handle the response
-    
     console.log('[Service Worker] Journal sync completed');
   } catch (error) {
     console.error('[Service Worker] Journal sync failed:', error);
@@ -336,12 +331,5 @@ if ('periodicSync' in self.registration) {
     }
   });
 }
-
-// ============================================
-// OFFLINE PAGE GENERATOR
-// ============================================
-// Note: You need to create an offline.html file
-// with a user-friendly offline message
-// ============================================
 
 console.log('[Service Worker] Loaded successfully!');
