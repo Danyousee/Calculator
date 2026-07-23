@@ -2,7 +2,8 @@
   "name": "Trading journal",
   "short_name": "Trading journal",
   "description": "Professional trading journal and PDF reports with risk calculator",
-  "start_url": "/",
+  "start_url": "/Calculator/",
+  "scope": "/Calculator/",
   "display": "standalone",
   "background_color": "#f4f8ff",
   "theme_color": "#1565ff",
@@ -36,7 +37,7 @@
       "name": "Calculator",
       "short_name": "Calc",
       "description": "Open risk calculator",
-      "url": "/",
+      "url": "/Calculator/",
       "icons": [
         {
           "src": "launchericon-192x192.png",
@@ -48,7 +49,7 @@
       "name": "Journal",
       "short_name": "Journal",
       "description": "View trading journal",
-      "url": "/?tab=journal",
+      "url": "/Calculator/?tab=journal",
       "icons": [
         {
           "src": "launchericon-192x192.png",
