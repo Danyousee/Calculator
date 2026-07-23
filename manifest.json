@@ -1,7 +1,7 @@
 {
-  "name": "Perpetual Risk Calculator",
-  "short_name": "Risk Calc",
-  "description": "Professional trading risk calculator with journal and PDF reports",
+  "name": "Trading journal",
+  "short_name": "Trading journal",
+  "description": "Professional trading journal and PDF reports with risk calculator",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f4f8ff",
